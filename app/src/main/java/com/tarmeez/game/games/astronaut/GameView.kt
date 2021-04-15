@@ -154,7 +154,7 @@ class GameView(
             for (bullet in bullets) canvas.drawBitmap(
                 bullet.bullet,
                 bullet.x.toFloat(),
-                bullet.y.toFloat(),
+                bullet.y.toFloat()-300,
                 paint
             )
             holder.unlockCanvasAndPost(canvas)
