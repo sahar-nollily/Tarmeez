@@ -19,4 +19,6 @@
     <string name="quiz_button">Test your knowledge</string>
     <string name="back_to_sections">Back</string>
     <string name="forgot_password">Reset password</string>
+    <string name="are_you_ready_to_fight_aliens">Are you ready to fight Aliens?</string>
+    <string name="game_over">Game Over</string>
 </resources>
