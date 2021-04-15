@@ -6,7 +6,7 @@
     <string name="login">تسجيل الدخول</string>
     <string name="error_message">  خطأ في البيانات المدخلة %s </string>
     <string name="new_account">إنشاء حساب جديد</string>
-    <string name="password_confirmation">أدخل تأكيد كلمة المرور</string>
+    <string name="password_confirmation">أدخل تأكيد كلمة المرور %s</string>
     <string name="has_account">لديك حساب بالفعل؟</string>
     <string name="create_account">إنشاء حساب</string>
     <string name="already_exist"> %s الحساب موجود بالفعل</string>
