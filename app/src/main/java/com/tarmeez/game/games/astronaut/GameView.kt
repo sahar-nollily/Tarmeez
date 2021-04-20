@@ -195,7 +195,7 @@ class GameView(
         try {
             Thread.sleep(2500)
             val navController =
-                Navigation.findNavController(fragment.requireActivity(), R.id.fragment2)
+                Navigation.findNavController(fragment.requireActivity(), R.id.fragment_container)
             navController.navigate(R.id.endGameFragment)
         } catch (e: InterruptedException) {
             e.printStackTrace()

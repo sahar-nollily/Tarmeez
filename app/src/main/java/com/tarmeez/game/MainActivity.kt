@@ -50,14 +50,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpNavigationController(){
         navController =
-            Navigation.findNavController(this, R.id.fragment2)
+            Navigation.findNavController(this, R.id.fragment_container)
         bottomNavigationView.background = null
 
         fab.setOnClickListener {
             navController.navigate(R.id.homeFragment)
         }
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
-        findNavController(R.id.fragment2)
+        findNavController(R.id.fragment_container)
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
 
