@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/menuGameFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -19,7 +19,11 @@
         android:id="@+id/galleryFragment"
         android:name="com.tarmeez.game.GalleryFragment"
         android:label="fragment_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_galleryFragment_to_menuGameFragment"
+            app:destination="@id/menuGameFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/menuGameFragment"
