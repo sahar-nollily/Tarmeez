@@ -9,8 +9,7 @@
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_marginEnd="2dp"
+        android:layout_height="450dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -44,7 +43,7 @@
         android:gravity="right"
         android:padding="10dp"
         android:singleLine="true"
-        android:nextFocusDown="@string/password_confirmation"
+        android:nextFocusDown="@id/login"
         android:textSize="14sp"
         android:layout_marginTop="10dp"
         android:inputType="textPassword"
@@ -54,7 +53,7 @@
         tools:ignore="RtlHardcoded" />
 
     <Button
-        android:id="@+id/register"
+        android:id="@+id/login"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -63,7 +62,8 @@
         android:textStyle="bold"
         android:textSize="15sp"
         android:background="@drawable/button_style"
-        android:text="@string/create_account"
+        android:text="@string/login"
+        android:nextFocusDown="@string/new_account"
         app:layout_constraintTop_toBottomOf="@id/user_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -73,13 +73,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginBottom="80dp"
         android:padding="10dp"
         android:text="@string/new_account"
         android:textColor="@color/pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register"
+        app:layout_constraintTop_toBottomOf="@id/login"
         app:layout_constraintVertical_bias="0.057"
         tools:ignore="SmallSp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

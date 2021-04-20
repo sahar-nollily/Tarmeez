@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "647252506382",
+    "project_id": "tarmeez-e94f7",
+    "storage_bucket": "tarmeez-e94f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647252506382:android:1140a4ed848de7913d095f",
+        "android_client_info": {
+          "package_name": "com.tarmeez.game"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647252506382-hqag67kvcqjtq2ggr6jd3999ba2tb5e7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyAjs0dAdYyLv4hzvGbt5KN9aTouGNlyw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647252506382-hqag67kvcqjtq2ggr6jd3999ba2tb5e7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
