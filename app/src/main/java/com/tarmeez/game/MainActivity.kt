@@ -15,7 +15,9 @@ import com.tarmeez.game.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private var _binding: ActivityMainBinding? = null
+    private val binding get() = _binding!!
+
     lateinit var fab: FloatingActionButton
     lateinit var bottomNavigationView: BottomNavigationView
     lateinit var bottomAppBar: BottomAppBar
@@ -29,12 +31,13 @@ class MainActivity : AppCompatActivity() {
 
     private val fragmentsWithHeader = listOf(
         R.id.homeFragment,
-        R.id.galleryFragment
+        R.id.galleryFragment,
+        R.id.matchingGameFragment
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         supportActionBar?.hide()

@@ -23,6 +23,9 @@
         <action
             android:id="@+id/action_galleryFragment_to_menuGameFragment"
             app:destination="@id/menuGameFragment" />
+        <action
+            android:id="@+id/action_galleryFragment_to_matchingGameFragment"
+            app:destination="@id/matchingGameFragment" />
     </fragment>
 
     <fragment
@@ -48,4 +51,9 @@
         android:name="com.tarmeez.game.games.astronaut.AstronautGameFragment"
         android:label="fragment_astronaut_game"
         tools:layout="@layout/fragment_astronaut_game" />
+    <fragment
+        android:id="@+id/matchingGameFragment"
+        android:name="com.tarmeez.game.games.matching.MatchingGameFragment"
+        android:label="fragment_matching_game"
+        tools:layout="@layout/fragment_matching_game" />
 </navigation>

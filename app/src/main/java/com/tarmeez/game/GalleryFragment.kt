@@ -24,6 +24,10 @@ class GalleryFragment : Fragment() {
             Navigation.findNavController(requireActivity(), R.id.fragment_container).navigate(R.id.menuGameFragment)
         }
 
+        binding.matchingGameCardView.setOnClickListener {
+            Navigation.findNavController(requireActivity(), R.id.fragment_container).navigate(R.id.matchingGameFragment)
+        }
+
         return binding.root
     }
 
