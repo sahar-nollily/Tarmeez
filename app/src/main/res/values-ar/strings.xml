@@ -31,4 +31,6 @@
     <string name="games">الألعاب</string>
     <string name="matching_game">لعبة مطابقة الصور</string>
     <string name="fighting_game">لعبة محارب الفضائيين</string>
+    <string name="are_you_ready_to_fight_aliens">هل انت مستعد لمحاربة الفضائيين؟</string>
+    <string name="game_over">انتهت اللعبة</string>
 </resources>

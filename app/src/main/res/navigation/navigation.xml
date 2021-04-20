@@ -20,4 +20,28 @@
         android:name="com.tarmeez.game.GalleryFragment"
         android:label="fragment_gallery"
         tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/menuGameFragment"
+        android:name="com.tarmeez.game.games.astronaut.MenuGameFragment"
+        android:label="fragment_menu_game"
+        tools:layout="@layout/fragment_menu_game" >
+        <action
+            android:id="@+id/action_menuGameFragment_to_astronautGameFragment2"
+            app:destination="@id/astronautGameFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/endGameFragment"
+        android:name="com.tarmeez.game.games.astronaut.EndGameFragment"
+        android:label="fragment_end_game"
+        tools:layout="@layout/fragment_end_game" >
+        <action
+            android:id="@+id/action_endGameFragment_to_menuGameFragment"
+            app:destination="@id/menuGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/astronautGameFragment2"
+        android:name="com.tarmeez.game.games.astronaut.AstronautGameFragment"
+        android:label="fragment_astronaut_game"
+        tools:layout="@layout/fragment_astronaut_game" />
 </navigation>
