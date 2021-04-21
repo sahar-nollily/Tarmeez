@@ -8,9 +8,6 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.google.android.material.bottomappbar.BottomAppBar
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.tarmeez.game.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -18,9 +15,6 @@ class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
 
-    lateinit var fab: FloatingActionButton
-    lateinit var bottomNavigationView: BottomNavigationView
-    lateinit var bottomAppBar: BottomAppBar
     lateinit var navController: NavController
 
     private val fragmentsWithBottomNavigationView = listOf(
@@ -40,11 +34,6 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.hide()
-        fab = findViewById(R.id.fab)
-        bottomNavigationView = findViewById(R.id.bottomNavigationView)
-        bottomAppBar = findViewById(R.id.bottomAppBar)
-
         setUpNavigationController()
 
         setupUserInformation()
@@ -54,12 +43,12 @@ class MainActivity : AppCompatActivity() {
     private fun setUpNavigationController(){
         navController =
             Navigation.findNavController(this, R.id.fragment_container)
-        bottomNavigationView.background = null
+        binding.bottomNavigationView.background = null
 
-        fab.setOnClickListener {
+        binding.fab.setOnClickListener {
             navController.navigate(R.id.homeFragment)
         }
-        NavigationUI.setupWithNavController(bottomNavigationView, navController)
+        NavigationUI.setupWithNavController(binding.bottomNavigationView, navController)
         findNavController(R.id.fragment_container)
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
@@ -85,12 +74,13 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun setupUserInformation(){
-        val gender = "أنثى"
+        val gender = "ss"
         if(gender == "ذكر"){
             binding.headerLayout.profileImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.boy_avatar))
         }else if(gender == "أنثى"){
             binding.headerLayout.profileImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.girl_avatar))
-        }
+        }else
+            binding.headerLayout.profileImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.profile_picture))
         binding.headerLayout.score.text = "100"
         binding.headerLayout.username.text = "Sahar"
     }
