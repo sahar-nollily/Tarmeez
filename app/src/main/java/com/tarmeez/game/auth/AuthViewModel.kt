@@ -1,12 +1,12 @@
 package com.tarmeez.game.auth
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 
-class AuthViewModel:ViewModel() {
-    private val firebaseAuth = FirebaseAuth.getInstance()
+class AuthViewModel @ViewModelInject constructor(private val firebaseAuth:FirebaseAuth):ViewModel() {
     private val _state = MutableLiveData<State>()
     val state:LiveData<State>
     get() = _state

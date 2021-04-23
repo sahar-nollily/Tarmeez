@@ -8,17 +8,17 @@ import android.view.*
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.view.updateMarginsRelative
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.google.android.material.snackbar.Snackbar
 import com.tarmeez.game.R
 import com.tarmeez.game.databinding.FragmentRegisterBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 private const val TAG = "RegisterFragment"
+@AndroidEntryPoint
 class RegisterFragment: Fragment() {
     private var _binding:FragmentRegisterBinding? = null
     private val binding:FragmentRegisterBinding?
@@ -51,8 +51,8 @@ class RegisterFragment: Fragment() {
         binding?.register?.setOnClickListener {
             if (validation()) {
                 authViewModel.register(
-                    binding?.userEmail?.text.toString(),
-                    binding?.userEmail?.text.toString()
+                    binding?.userEmail?.text.toString().trim(),
+                    binding?.userPassword?.text.toString().trim()
                 )
             }
         }

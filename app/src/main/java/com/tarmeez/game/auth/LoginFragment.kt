@@ -14,8 +14,10 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.tarmeez.game.R
 import com.tarmeez.game.databinding.FragmentLoginBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 private const val TAG = "LoginFragment"
+@AndroidEntryPoint
 class LoginFragment: Fragment() {
     private var _binding:FragmentLoginBinding? = null
     private val binding:FragmentLoginBinding?
@@ -51,8 +53,8 @@ class LoginFragment: Fragment() {
                 hideKeyBoard()
                 if (validation()) {
                     authViewModel.Login (
-                        binding?.userEmail?.text.toString(),
-                        binding?.userPassword.toString()
+                        binding?.userEmail?.text.toString().trim(),
+                        binding?.userPassword?.text.toString().trim()
                     )
                 }
             }

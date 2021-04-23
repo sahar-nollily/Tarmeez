@@ -5,7 +5,9 @@ import android.os.Bundle
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var fab: FloatingActionButton
     lateinit var bottomNavigationView: BottomNavigationView
