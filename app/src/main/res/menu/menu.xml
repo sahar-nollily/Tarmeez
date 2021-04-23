@@ -4,10 +4,10 @@
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/ic_profile"
-        android:title="Profile" />
+        android:title="@string/profile" />
     <item
         android:id="@+id/galleryFragment"
         android:icon="@drawable/ic_dashboard"
-        android:title="Games" />
+        android:title="@string/games" />
 
 </menu>
