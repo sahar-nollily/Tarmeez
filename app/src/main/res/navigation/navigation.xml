@@ -6,7 +6,7 @@
     app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/fragment_matching_game"
+        android:id="@+id/matchingGameFragment"
         android:name="com.tarmeez.game.games.MatchingGameFragment"
         tools:layout="@layout/fragment_matching_game" />
 
