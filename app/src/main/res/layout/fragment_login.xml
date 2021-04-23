@@ -10,6 +10,7 @@
         android:id="@+id/lottie"
         android:layout_width="match_parent"
         android:layout_height="450dp"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -82,5 +83,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login"
         app:layout_constraintVertical_bias="0.057"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/forget_password"
+        android:textColor="@color/pink"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/new_account"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="SmallSp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

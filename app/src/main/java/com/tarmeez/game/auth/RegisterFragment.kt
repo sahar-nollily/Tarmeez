@@ -2,26 +2,31 @@ package com.tarmeez.game.auth
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.FrameLayout
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.updateMarginsRelative
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
+import com.google.android.material.snackbar.Snackbar
 import com.tarmeez.game.R
 import com.tarmeez.game.databinding.FragmentRegisterBinding
 
+private const val TAG = "RegisterFragment"
 class RegisterFragment: Fragment() {
     private var _binding:FragmentRegisterBinding? = null
-    val binding:FragmentRegisterBinding?
+    private val binding:FragmentRegisterBinding?
     get() = _binding
     private val authViewModel: AuthViewModel by viewModels()
     private lateinit var progressDialog: AlertDialog
 
-    override fun onCreateView(
+    override fun onCreateView (
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,6 +39,7 @@ class RegisterFragment: Fragment() {
 
     private fun initViews() {
         binding?.userEmail?.hint = getString(R.string.enter_email, " ")
+        binding?.userEmail?.isFocusable = true
         binding?.userPassword?.hint = getString(R.string.enter_password, " ")
         binding?.passwordConfirmation?.hint = getString(R.string.password_confirmation, " ")
         binding?.hasAccount?.setOnClickListener {
@@ -51,7 +57,6 @@ class RegisterFragment: Fragment() {
             }
         }
 
-        binding?.passwordConfirmation?.nextFocusDownId = R.id.register
         progressDialog = object : AlertDialog(requireContext()){
             override fun show() {
                 super.show()
@@ -65,15 +70,46 @@ class RegisterFragment: Fragment() {
         authViewModel.state.observe(viewLifecycleOwner ,{ state ->
             when (state) {
                 is AuthViewModel.State.Authenticated -> {
-                    Toast.makeText(requireContext(), "true", Toast.LENGTH_LONG).show()
+                    progressDialog.dismiss()
+                    //Navigate to HomeFragment and create session
                 }
 
                 is AuthViewModel.State.ErrorLogin -> {
-                    Toast.makeText(requireContext(), "error: ${state.message}", Toast.LENGTH_LONG).show()
+                    progressDialog.dismiss()
+                    Log.d(TAG,  state.message)
+                    //This code causes exception due to Theme.AppCompat
+
+                    /*
+                    val snackBar = binding?.root?.let {
+                        Snackbar.make(
+                            it,
+                            getString(R.string.error_message, " "), 3000)
+                    }
+                    if (snackBar != null) {
+                        val snackBarText: TextView = snackBar.view.
+                        findViewById(com.google.android.material.R.id.snackbar_text)
+                        snackBarText.textSize = 16f
+                        val layoutParams = FrameLayout.LayoutParams(
+                            LinearLayout
+                                .LayoutParams.WRAP_CONTENT, LinearLayout.
+                            LayoutParams.WRAP_CONTENT, Gravity.END )
+                        layoutParams.updateMarginsRelative(0, 1800,
+                            0, 0)
+                        snackBarText.setCompoundDrawablesWithIntrinsicBounds(
+                            0, 0,
+                            R.drawable.ic_baseline_error_outline_24, 0)
+                        snackBar.view.setPadding(400, 0, 0, 0)
+                        layoutParams.gravity = Gravity.CENTER
+                        snackBar.view.layoutParams = layoutParams
+                        snackBar.setBackgroundTint(resources.getColor(R.color.dark_gray))
+                        snackBar.setActionTextColor(resources.getColor(R.color.white))
+                        snackBar.show()
+                    }
+                     */
                 }
 
                 is AuthViewModel.State.Loading -> {
-                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_LONG).show()
+                    progressDialog.show()
                 }
             }
         })
