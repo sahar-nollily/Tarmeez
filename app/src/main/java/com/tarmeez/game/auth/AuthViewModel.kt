@@ -42,6 +42,7 @@ class AuthViewModel @ViewModelInject constructor(private val firebaseAuth:Fireba
             }
         }
     }
+
     sealed class State {
         class ErrorLogin(val message:String):State()
         object Loading: State()

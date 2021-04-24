@@ -20,6 +20,7 @@ class ForgotPasswordFragment: Fragment() {
     private var _binding: FragmentForgotPasswordBinding? = null
     private val binding get() = _binding!!
     private val authViewModel:AuthViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,7 +46,7 @@ class ForgotPasswordFragment: Fragment() {
         authViewModel.state.observe(viewLifecycleOwner, { state ->
             when (state) {
                 is AuthViewModel.State.PasswordReseated -> {
-                    Log.d(TAG, "Password has been sent")
+                    Log.d(TAG, "Email has been sent")
                     // add snackbar here to notify user that the email has been sent
                 }
 
