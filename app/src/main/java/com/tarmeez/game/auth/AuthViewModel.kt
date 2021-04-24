@@ -10,7 +10,8 @@ class AuthViewModel @ViewModelInject constructor(private val firebaseAuth:Fireba
     private val _state = MutableLiveData<State>()
     val state:LiveData<State>
     get() = _state
-    fun Login (email:String, password:String) {
+
+    fun login (email:String, password:String) {
         _state.postValue(State.Loading)
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
@@ -32,9 +33,20 @@ class AuthViewModel @ViewModelInject constructor(private val firebaseAuth:Fireba
         }
     }
 
+    fun resetPassword (email: String) {
+        firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                _state.postValue(State.PasswordReseated)
+            } else {
+                _state.postValue(State.ErrorPasswordResetting (task.exception?.message.toString()))
+            }
+        }
+    }
     sealed class State {
         class ErrorLogin(val message:String):State()
         object Loading: State()
         object Authenticated: State()
+        object PasswordReseated:State()
+        class ErrorPasswordResetting(val message: String):State()
     }
 }

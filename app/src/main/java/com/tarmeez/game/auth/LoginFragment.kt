@@ -21,7 +21,7 @@ private const val TAG = "LoginFragment"
 class LoginFragment: Fragment() {
     private var _binding:FragmentLoginBinding? = null
     private val binding:FragmentLoginBinding?
-    get() = _binding
+    get() = _binding!!
     private val authViewModel: AuthViewModel by viewModels()
     private lateinit var progressDialog:AlertDialog
 
@@ -46,24 +46,21 @@ class LoginFragment: Fragment() {
             }
         }
         binding?.forgotPassword?.setOnClickListener {
-           //Navigate to forgot password fragments
+            binding?.root?.let { view ->
+                Navigation.findNavController(view)
+                    .navigate(R.id.LoginFragmentToForgotPasswordFragment) }
         }
         binding?.login?.apply {
             setOnClickListener {
                 hideKeyBoard()
                 if (validation()) {
-                    authViewModel.Login (
+                    authViewModel.login (
                         binding?.userEmail?.text.toString().trim(),
                         binding?.userPassword?.text.toString().trim()
                     )
                 }
             }
-
-            setOnFocusChangeListener { _, _ ->
-                hideKeyBoard()
-            }
         }
-
         progressDialog = object : AlertDialog(requireContext()){
             override fun show() {
                 super.show()
@@ -76,65 +73,38 @@ class LoginFragment: Fragment() {
         authViewModel.state.observe(viewLifecycleOwner , { state ->
             when (state) {
                 is AuthViewModel.State.Authenticated -> {
+                    Log.d(TAG, "User Authenticated")
                     progressDialog.dismiss()
                     //Navigate to HomeFragment and create session
-                }
 
+                }
                 is AuthViewModel.State.ErrorLogin -> {
                     progressDialog.dismiss()
                     Log.d(TAG,  state.message)
-
-                    //This code causes exception due to Themt.AppCompat
-                    /*
-                    val snackBar = binding?.root?.let {
-                        Snackbar.make(
-                            it,
-                            getString(R.string.error_message, " "), 3000)
-                    }
-                    if (snackBar != null) {
-                        val snackBarText: TextView = snackBar.view.findViewById(com.google.android.material.R.id.snackbar_text)
-                        snackBarText.textSize = 16f
-                        val layoutParams = FrameLayout.LayoutParams(
-                            LinearLayout
-                                .LayoutParams.WRAP_CONTENT, LinearLayout.
-                            LayoutParams.WRAP_CONTENT, Gravity.RIGHT )
-                        layoutParams.updateMarginsRelative(0, 1800,
-                            0, 0)
-                        snackBarText.setCompoundDrawablesWithIntrinsicBounds(
-                            0, 0,
-                            R.drawable.ic_baseline_error_outline_24, 0)
-                        snackBar.view.setPadding(400, 0, 0, 0)
-                        layoutParams.gravity = Gravity.CENTER
-                        snackBar.view.layoutParams = layoutParams
-                        snackBar.setBackgroundTint(resources.getColor(R.color.dark_gray))
-                        snackBar.setActionTextColor(resources.getColor(R.color.white))
-                        snackBar.show()
-                    }
-
-                     */
+                    //Add snackbasr here to notify the user that something went wrong
                 }
-
                 is AuthViewModel.State.Loading -> {
                     progressDialog.show()
                 }
+                else -> {}
             }
         })
     }
 
     private fun validation():Boolean {
         var result = true
-        if(binding?.userEmail?.text.toString().isBlank()) {
+        if (binding?.userEmail?.text.toString().isBlank()) {
             binding?.userEmail?.error = getString(R.string.enter_your_email)
             result = false
         }
-        if(binding?.userPassword?.text.toString().isBlank()) {
+        if (binding?.userPassword?.text.toString().isBlank()) {
             binding?.userPassword?.error = getString(R.string.enter_your_password)
             result = false
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(binding?.userEmail?.text.toString()).matches()) {
+        if (!Patterns.EMAIL_ADDRESS.matcher(binding?.userEmail?.text.toString()).matches()) {
             binding?.userEmail?.error = getString(R.string.invalid_email)
         }
-        if(binding?.userEmail?.text.toString().isBlank() &&
+        if (binding?.userEmail?.text.toString().isBlank() &&
             binding?.userPassword?.text.toString().isBlank() ) {
             binding?.userEmail?.error = getString(R.string.enter_your_email)
             binding?.userPassword?.error = getString(R.string.enter_your_password)
