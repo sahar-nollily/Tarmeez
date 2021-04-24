@@ -6,7 +6,7 @@
     <string name="login">Login</string>
     <string name="error_message">Invalid data %s </string>
     <string name="new_account">Create new account</string>
-    <string name="password_confirmation">Enter confirm password %s</string>
+    <string name="password_confirmation">Enter password confirmation %s</string>
     <string name="has_account">Already have account?</string>
     <string name="create_account">Create account</string>
     <string name="already_exist">Account already exist %s </string>
