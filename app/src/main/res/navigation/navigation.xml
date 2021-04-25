@@ -6,6 +6,40 @@
     app:startDestination="@id/homeFragment">
 
     <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.tarmeez.game.auth.RegisterFragment"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/RegisterFragmentToLoginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.tarmeez.game.auth.LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/LoginFragmentToRegisterFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/LoginFragmentToForgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.tarmeez.game.auth.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" >
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/ForgotPasswordFragmentToLoginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
         android:id="@+id/matchingGameFragment"
         android:name="com.tarmeez.game.games.MatchingGameFragment"
         tools:layout="@layout/fragment_matching_game" />
@@ -15,11 +49,13 @@
         android:name="com.tarmeez.game.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+  
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.tarmeez.game.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+  
     <fragment
         android:id="@+id/galleryFragment"
         android:name="com.tarmeez.game.GalleryFragment"

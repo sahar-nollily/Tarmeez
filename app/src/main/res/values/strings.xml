@@ -6,7 +6,7 @@
     <string name="login">Login</string>
     <string name="error_message">Invalid data %s </string>
     <string name="new_account">Create new account</string>
-    <string name="password_confirmation">Enter confirm password</string>
+    <string name="password_confirmation">Enter password confirmation %s</string>
     <string name="has_account">Already have account?</string>
     <string name="create_account">Create account</string>
     <string name="already_exist">Account already exist %s </string>
@@ -14,11 +14,12 @@
     <string name="enter_your_password">Please enter your password"</string>
     <string name="un_matched_password">The password does not match</string>
     <string name="password_more_than_six">Password mut be 6 or more</string>
-    <string name="invalid_email">Invalid password</string>
+    <string name="invalid_email">Invalid Email</string>
     <string name="questions_number">Question %d/%d</string>
     <string name="quiz_button">Test your knowledge</string>
     <string name="back_to_sections">Back</string>
     <string name="forgot_password">Reset password</string>
+    <string name="password_reset">Email has been sent</string>
     <string name="if_condition">If\ncondition</string>
     <string name="variables">Variables</string>
     <string name="funcation">Function</string>
