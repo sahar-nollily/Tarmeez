@@ -1,17 +1,16 @@
 package com.tarmeez.game.auth
 
 import android.app.AlertDialog
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import com.tarmeez.game.MainActivity
 import com.tarmeez.game.R
 import com.tarmeez.game.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -52,7 +51,7 @@ class LoginFragment: Fragment() {
         }
         binding?.login?.apply {
             setOnClickListener {
-                hideKeyBoard()
+                (activity as MainActivity).hideKeyBoard()
                 if (validation()) {
                     authViewModel.login (
                         binding?.userEmail?.text.toString().trim(),
@@ -111,19 +110,5 @@ class LoginFragment: Fragment() {
             result = false
         }
         return result
-    }
-
-    private fun hideKeyBoard() {
-        activity?.let {
-            val inputManager =
-                it.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            val view = it.currentFocus
-            if (view != null) {
-                inputManager.hideSoftInputFromWindow(
-                    view.windowToken,
-                    InputMethodManager.HIDE_NOT_ALWAYS
-                )
-            }
-        }
     }
 }

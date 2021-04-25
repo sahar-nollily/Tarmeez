@@ -8,6 +8,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import com.tarmeez.game.MainActivity
 import com.tarmeez.game.R
 import com.tarmeez.game.databinding.FragmentRegisterBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,6 +44,7 @@ class RegisterFragment: Fragment() {
             }
         }
         binding?.register?.setOnClickListener {
+            (activity as MainActivity).hideKeyBoard()
             if (validation()) {
                 authViewModel.register (
                     binding?.userEmail?.text.toString().trim(),
