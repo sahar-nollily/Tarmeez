@@ -18,14 +18,14 @@ class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
     lateinit var navController: NavController
-  
-    private val fragmentsWithBottomNavigationView = listOf (
+
+    private val fragmentsWithBottomNavigationView = listOf(
         R.id.homeFragment,
         R.id.profileFragment,
         R.id.galleryFragment
     )
 
-    private val fragmentsWithHeader = listOf (
+    private val fragmentsWithHeader = listOf(
         R.id.homeFragment,
         R.id.galleryFragment,
         R.id.matchingGameFragment
@@ -64,9 +64,9 @@ class MainActivity : AppCompatActivity() {
 
             }
 
-            if(destination.id in fragmentsWithHeader){
+            if (destination.id in fragmentsWithHeader) {
                 binding.headerLayout.rootHeaderLayout.visibility = View.VISIBLE
-            }else{
+            } else {
                 binding.headerLayout.rootHeaderLayout.visibility = View.GONE
             }
         }
@@ -74,24 +74,39 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupUserInformation() {
         val gender = "ss"
-        if(gender == "ذكر"){
-            binding.headerLayout.profileImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.boy_avatar))
-        }else if(gender == "أنثى"){
-            binding.headerLayout.profileImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.girl_avatar))
-        }else
-            binding.headerLayout.profileImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.profile_picture))
+        if (gender == "ذكر") {
+            binding.headerLayout.profileImage.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.boy_avatar
+                )
+            )
+        } else if (gender == "أنثى") {
+            binding.headerLayout.profileImage.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.girl_avatar
+                )
+            )
+        } else
+            binding.headerLayout.profileImage.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.profile_picture
+                )
+            )
         binding.headerLayout.score.text = "100"
         binding.headerLayout.username.text = "Sahar"
     }
 
-     fun hideKeyBoard() {
-         val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            val view = currentFocus
-            if (view != null) {
-                inputManager.hideSoftInputFromWindow(
-                    view.windowToken,
-                    InputMethodManager.HIDE_NOT_ALWAYS
-                )
+    fun hideKeyBoard() {
+        val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val view = currentFocus
+        if (view != null) {
+            inputManager.hideSoftInputFromWindow(
+                view.windowToken,
+                InputMethodManager.HIDE_NOT_ALWAYS
+            )
         }
-
+    }
 }
