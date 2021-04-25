@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightBackground"
+    tools:context=".ProfileFragment">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginStart="-10dp"
+        android:layout_marginEnd="-10dp"
+        android:background="@drawable/profile_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/avatar_container"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/avatar_shape"
+        android:backgroundTint="@color/yellow_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="93dp"
+        android:layout_height="96dp"
+        android:src="@drawable/user"
+        app:layout_constraintBottom_toBottomOf="@+id/avatar_container"
+        app:layout_constraintEnd_toEndOf="@+id/avatar_container"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/avatar_container"
+        app:layout_constraintTop_toTopOf="@+id/avatar_container"
+        app:layout_constraintVertical_bias="0.09" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/avatar_container"
+        app:layout_constraintEnd_toEndOf="@+id/avatar_container"
+        app:layout_constraintStart_toStartOf="@+id/avatar_container">
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="center_vertical|right"
+            tools:text="100" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/coin"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="coin.json"
+            app:lottie_loop="true" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/username_edit_text"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:enabled="false"
+        android:gravity="center"
+        android:inputType="text"
+        android:padding="10dp"
+        android:text="@string/your_name"
+        app:layout_constraintEnd_toEndOf="@+id/avatar_container"
+        app:layout_constraintStart_toStartOf="@+id/avatar_container"
+        app:layout_constraintTop_toBottomOf="@+id/avatar_container" />
+
+    <TextView
+        android:id="@+id/edit_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_baseline_edit_24"
+        android:backgroundTint="@color/orange_1"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/username_edit_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/username_edit_text"
+        app:layout_constraintTop_toTopOf="@+id/username_edit_text" />
+
+    <ImageView
+        android:id="@+id/name_icon"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:backgroundTint="@color/gray"
+        android:src="@drawable/name"
+        app:layout_constraintBottom_toBottomOf="@+id/username_edit_text"
+        app:layout_constraintEnd_toStartOf="@+id/username_edit_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/username_edit_text" />
+
+    <EditText
+        android:id="@+id/age_edit_text"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:enabled="false"
+        android:gravity="center"
+        android:inputType="number"
+        android:padding="10dp"
+        android:text="@string/your_age"
+        app:layout_constraintEnd_toEndOf="@+id/username_edit_text"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/username_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/username_edit_text" />
+
+    <TextView
+        android:id="@+id/edit_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_baseline_edit_24"
+        android:backgroundTint="@color/orange_1"
+        app:layout_constraintBottom_toBottomOf="@+id/age_edit_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/age_edit_text"
+        app:layout_constraintTop_toTopOf="@+id/age_edit_text" />
+
+    <ImageView
+        android:id="@+id/age_icon"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:backgroundTint="@color/gray"
+        android:src="@drawable/age"
+        app:layout_constraintBottom_toBottomOf="@+id/age_edit_text"
+        app:layout_constraintEnd_toStartOf="@+id/age_edit_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/age_edit_text" />
+
+    <EditText
+        android:id="@+id/email_edit_text"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:enabled="false"
+        android:gravity="center"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/age_edit_text"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/age_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/age_edit_text" />
+
+    <ImageView
+        android:id="@+id/email_icon"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:backgroundTint="@color/gray"
+        android:src="@drawable/email"
+        app:layout_constraintBottom_toBottomOf="@+id/email_edit_text"
+        app:layout_constraintEnd_toStartOf="@+id/email_edit_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/email_edit_text" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/email_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/email_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/email_edit_text">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/boy_image_view"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/cyan_2"
+            android:src="@drawable/boy_avatar"
+            app:civ_border_color="#FFE500"
+            app:civ_border_width="5dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/girl_image_view"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:backgroundTint="@color/pink_2"
+            android:src="@drawable/girl_avatar"
+            app:civ_border_color="#FFE500"
+            app:civ_border_width="4dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/gender_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gender"
+        android:visibility="gone"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/gender_icon"
+        android:layout_width="26dp" android:layout_height="26dp"
+        android:backgroundTint="@color/gray"
+        android:src="@drawable/gender"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_style"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <ImageView
+        android:id="@+id/logout_icon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layoutDirection="ltr"
+        android:background="@drawable/logout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

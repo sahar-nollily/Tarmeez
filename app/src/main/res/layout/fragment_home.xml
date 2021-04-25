@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layoutDirection="ltr"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.github.matteobattilana.weather.WeatherView
+        android:id="@+id/weatherAnimation"
+        android:layout_width="match_parent"
+        android:layout_height="1000dp"
+        tools:ignore="MissingConstraints">
+    </com.github.matteobattilana.weather.WeatherView>
+
+    <TextView
+        android:id="@+id/conditions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="76dp"
+        android:gravity="center"
+        android:text="@string/if_condition"
+        android:textColor="@color/white"
+        tools:textColor="@color/black"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toEndOf="@+id/relations_conditions_mars"
+        app:layout_constraintTop_toBottomOf="@+id/variables_earth" />
+
+    <TextView
+        android:id="@+id/variables"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:text="@string/variables"
+        android:textColor="@color/white"
+        tools:textColor="@color/black"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/variables_earth"
+        app:layout_constraintHorizontal_bias="0.386"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/variables_earth" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="165dp"
+        android:src="@drawable/line2"
+        android:autoMirrored="true"
+        app:layout_constraintEnd_toStartOf="@+id/variables_earth"
+        app:layout_constraintStart_toEndOf="@+id/relations_conditions_mars"
+        app:layout_constraintTop_toTopOf="@+id/weatherAnimation" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/line1"
+        android:autoMirrored="true"
+        app:layout_constraintEnd_toStartOf="@+id/moon"
+        app:layout_constraintStart_toEndOf="@+id/relations_conditions_mars"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/neptune"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/functions"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="neptune.json"
+        app:lottie_loop="true" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/relations_conditions_mars"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/variables"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="Mars.json"
+        app:lottie_loop="true" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/moon"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/conditions"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="moon.json"
+        app:lottie_loop="true" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/line2"
+        app:layout_constraintEnd_toStartOf="@+id/moon"
+        app:layout_constraintStart_toEndOf="@+id/neptune"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/variables_earth"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="earth.json"
+        app:lottie_loop="true" />
+
+    <TextView
+        android:id="@+id/functions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/funcation"
+        android:textColor="@color/white"
+        tools:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/moon"
+        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relations_conditions_mars" />
+
+    <TextView
+        android:id="@+id/arrays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="100dp"
+        android:text="@string/array"
+        android:textColor="@color/white"
+        tools:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toEndOf="@+id/neptune"
+        app:layout_constraintTop_toBottomOf="@+id/moon" />
+
+    <TextView
+        android:id="@+id/ending"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/neptune" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

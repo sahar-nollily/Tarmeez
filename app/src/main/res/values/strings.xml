@@ -20,4 +20,18 @@
     <string name="back_to_sections">Back</string>
     <string name="forgot_password">Reset password</string>
     <string name="password_reset">Email has been sent</string>
+    <string name="if_condition">If\ncondition</string>
+    <string name="variables">Variables</string>
+    <string name="funcation">Function</string>
+    <string name="array">Arrays</string>
+    <string name="your_name">Your name</string>
+    <string name="your_age">Your age</string>
+    <string name="gender">Gender</string>
+    <string name="save">Save</string>
+    <string name="profile">Profile</string>
+    <string name="games">Games</string>
+    <string name="matching_game">Matching Game</string>
+    <string name="fighting_game">Fighting Aliens Game</string>
+    <string name="are_you_ready_to_fight_aliens">Are you ready to fight Aliens?</string>
+    <string name="game_over">Game Over</string>
 </resources>
