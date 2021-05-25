@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.tarmeez.game.MainActivity
 import com.tarmeez.game.R
 import com.tarmeez.game.databinding.FragmentLoginBinding
@@ -36,18 +37,15 @@ class LoginFragment: Fragment() {
     }
 
     private fun initViews() {
-        binding?.userEmail?.hint = getString(R.string.enter_email, " ")
-        binding?.userPassword?.hint = getString(R.string.enter_password, " ")
         binding?.newAccount?.setOnClickListener {
             binding?.root?.let { view ->
-                Navigation.findNavController(view)
+                findNavController()
                     .navigate(R.id.LoginFragmentToRegisterFragment)
             }
         }
         binding?.forgotPassword?.setOnClickListener {
-            binding?.root?.let { view ->
-                Navigation.findNavController(view)
-                    .navigate(R.id.LoginFragmentToForgotPasswordFragment) }
+            binding?.root?.let {
+                findNavController().navigate(R.id.LoginFragmentToForgotPasswordFragment) }
         }
         binding?.login?.apply {
             setOnClickListener {
@@ -74,10 +72,12 @@ class LoginFragment: Fragment() {
                 is AuthViewModel.State.Authenticated -> {
                     Log.d(TAG, "User Authenticated")
                     progressDialog.dismiss()
-                    //Navigate to HomeFragment and create session
+                    binding?.root?.let {
+                        Navigation.findNavController(it).navigate(R.id.LoginFragmentToHomeFragment)
+                    }
 
                 }
-                is AuthViewModel.State.ErrorLogin -> {
+                is AuthViewModel.State.AuthError -> {
                     progressDialog.dismiss()
                     Log.d(TAG,  state.message)
                     //Add snackbasr here to notify the user that something went wrong

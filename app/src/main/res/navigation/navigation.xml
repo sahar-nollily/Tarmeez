@@ -12,6 +12,9 @@
         <action
             android:id="@+id/RegisterFragmentToLoginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/RegisterFragmentToHomeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 
     <fragment
@@ -24,6 +27,9 @@
         <action
             android:id="@+id/LoginFragmentToForgotPasswordFragment"
             app:destination="@id/forgotPasswordFragment" />
+        <action
+            android:id="@+id/LoginFragmentToHomeFragment"
+            app:destination="@+id/homeFragment" />
     </fragment>
 
     <fragment
@@ -46,19 +52,28 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.tarmeez.game.HomeFragment"
+        android:name="com.tarmeez.game.content.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/HomeFragmentToLoginFragment"
+            app:destination="@id/loginFragment"/>
+    </fragment>
   
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.tarmeez.game.ProfileFragment"
+        android:name="com.tarmeez.game.content.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile">
+    <action
+        android:id ="@+id/ProfileFragmentToLoginFragment"
+        app:destination="@id/loginFragment" />
+
+    </fragment>
   
     <fragment
         android:id="@+id/galleryFragment"
-        android:name="com.tarmeez.game.GalleryFragment"
+        android:name="com.tarmeez.game.games.GalleryFragment"
         android:label="fragment_gallery"
         tools:layout="@layout/fragment_gallery" >
         <action

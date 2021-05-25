@@ -1,8 +1,10 @@
 package com.tarmeez.game.di
 
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKeys
+import com.tarmeez.game.data.PreferenceManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,8 +18,13 @@ class DataModule {
 
     @Singleton
     @Provides
-    fun provideSharedPreference (@ApplicationContext context: Context) =
-        EncryptedSharedPreferences.create("Taemeez",
+    fun providePreferenceManager(sharedPreferences: SharedPreferences):PreferenceManager =
+        PreferenceManager(sharedPreferences)
+
+    @Singleton
+    @Provides
+    fun provideSharedPreference (@ApplicationContext context: Context):SharedPreferences =
+        EncryptedSharedPreferences.create("Taremeez",
             MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC),
             context, EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
             EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM)
