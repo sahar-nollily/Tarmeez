@@ -7,7 +7,7 @@ import android.util.Patterns
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.tarmeez.game.MainActivity
 import com.tarmeez.game.R
 import com.tarmeez.game.databinding.FragmentRegisterBinding
@@ -34,13 +34,9 @@ class RegisterFragment: Fragment() {
     }
 
     private fun initViews() {
-        binding?.userEmail?.hint = getString(R.string.enter_email, " ")
-        binding?.userPassword?.hint = getString(R.string.enter_password, " ")
-        binding?.passwordConfirmation?.hint = getString(R.string.password_confirmation, " ")
         binding?.hasAccount?.setOnClickListener {
-            binding?.root?.let { view ->
-                   Navigation.findNavController(view)
-                       .navigate(R.id.RegisterFragmentToLoginFragment)
+            binding?.root?.let {
+                   findNavController().navigate(R.id.RegisterFragmentToLoginFragment)
             }
         }
         binding?.register?.setOnClickListener {
@@ -66,11 +62,18 @@ class RegisterFragment: Fragment() {
         authViewModel.state.observe(viewLifecycleOwner ,{ state ->
             when (state) {
                 is AuthViewModel.State.Authenticated -> {
-                    Log.d(TAG, "User Registered")
+                    Log.d(TAG, "User Registered Successfully")
                     progressDialog.dismiss()
-                    //Navigate to HomeFragment and create session
+                    binding?.root?.let {
+                        findNavController()
+                            .navigate(R.id.RegisterFragmentToHomeFragment)
+                    }
                 }
-                is AuthViewModel.State.ErrorLogin -> {
+
+                is AuthViewModel.State.DatabaseException -> {
+                    Log.d(TAG, state.message)
+                }
+                is AuthViewModel.State.AuthError -> {
                     progressDialog.dismiss()
                     Log.d(TAG,  state.message)
                     //Add snackbasr here to notify the user that something went wrong
